@@ -1,1 +1,1 @@
-export { default } from './src/genDiff.js';
+export { default } from './src/genDiff.js'
