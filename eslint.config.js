@@ -1,16 +1,25 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import { defineConfig } from 'eslint/config'
-import stylistic from '@stylistic/eslint-plugin'
+import globals from 'globals';
 
-export default defineConfig([
-  stylistic.configs.recommended,
+export default [
   {
-    files: ['**/*.{js,mjs,cjs}'],
-    plugins: { js },
-    extends: ['js/recommended'],
+    ignores: ['coverage/**', 'node_modules/**'],
+  },
+  {
+    files: ['**/*.js'],
     languageOptions: {
-      globals: globals.node,
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: {
+        ...globals.node,
+      },
     },
   },
-])
+  {
+    files: ['**/__tests__/**/*.js'],
+    languageOptions: {
+      globals: {
+        ...globals.jest,
+      },
+    },
+  },
+];
