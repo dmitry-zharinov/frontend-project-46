@@ -5,6 +5,11 @@
 
 
 ## Demo
+### Сравнение плоских файлов (JSON)
 [![asciicast](https://asciinema.org/a/KWfizf0anTizFZzj.svg)](https://asciinema.org/a/KWfizf0anTizFZzj)
+### Сравнение плоских файлов (yaml)
 [![asciicast](https://asciinema.org/a/ezT0hFpZ6MYUYhIh.svg)](https://asciinema.org/a/ezT0hFpZ6MYUYhIh)
+### Рекурсивное сравнение
 [![asciicast](https://asciinema.org/a/95dqltSX2sFpCd5K.svg)](https://asciinema.org/a/95dqltSX2sFpCd5K)
+### Плоский формат
+[![asciicast](https://asciinema.org/a/zzJUr02uJTz7JdmJ.svg)](https://asciinema.org/a/zzJUr02uJTz7JdmJ)
