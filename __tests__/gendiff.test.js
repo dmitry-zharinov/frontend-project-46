@@ -75,3 +75,24 @@ test('gendiff plain nested json', () => {
 test('gendiff plain nested yaml', () => {
   expect(genDiff(getFixturePath('file1.yml'), getFixturePath('file2.yml'), 'plain')).toBe(expectedPlain);
 });
+
+test('gendiff json formatter returns diff tree', () => {
+  const result = genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'json');
+  const parsed = JSON.parse(result);
+
+  expect(parsed).toEqual(expect.any(Array));
+
+  const commonNode = parsed.find((n) => n.key === 'common');
+  expect(commonNode).toMatchObject({ type: 'nested' });
+
+  const group2Node = parsed.find((n) => n.key === 'group2');
+  expect(group2Node).toMatchObject({ type: 'removed' });
+
+  const group3Node = parsed.find((n) => n.key === 'group3');
+  expect(group3Node).toMatchObject({ type: 'added' });
+});
+
+test('gendiff json formatter snapshot', () => {
+  const result = genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'json');
+  expect(JSON.parse(result)).toMatchSnapshot();
+});
