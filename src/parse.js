@@ -1,10 +1,10 @@
 const parse = (data, format) => {
   switch (format) {
     case 'json':
-      return JSON.parse(data);
+      return JSON.parse(data)
     default:
-      throw new Error(`Unsupported format: ${format}`);
+      throw new Error(`Unsupported format: ${format}`)
   }
-};
+}
 
-module.exports = parse;
+export default parse;
