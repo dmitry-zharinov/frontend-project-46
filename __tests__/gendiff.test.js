@@ -1,18 +1,21 @@
 import path from 'path'
 import genDiff from '../index.js'
 
-test('gendiff flat json', () => {
-  const filepath1 = path.join(process.cwd(), '__fixtures__', 'file1.json')
-  const filepath2 = path.join(process.cwd(), '__fixtures__', 'file2.json')
+const getFixturePath = (name) => path.join(process.cwd(), '__fixtures__', name);
 
-  const expected = `{
+const expected = `{
   - follow: false
     host: hexlet.io
   - proxy: 123.234.53.22
   - timeout: 50
   + timeout: 20
   + verbose: true
-}`
+}`;
 
-  expect(genDiff(filepath1, filepath2)).toBe(expected)
-})
+test('gendiff flat json', () => {
+  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'))).toBe(expected);
+});
+
+test('gendiff flat yaml', () => {
+  expect(genDiff(getFixturePath('file1.yml'), getFixturePath('file2.yml'))).toBe(expected);
+});
